@@ -8,10 +8,10 @@ pipeline {
         steps {
             script {
                 if (env.BRANCH_NAME == 'staging') {
-            sh 'docker build -t hiro99/landing:0.0.$BUILD_NUMBER-stg .'
+            sh 'docker build -t landing:0.0.$BUILD_NUMBER-stg .'
                 }
                 else if (env.BRANCH_NAME == 'production') {
-            sh 'docker build -t hiro99/landing:0.0.$BUILD_NUMBER-prod .'   
+            sh 'docker build -t landing:0.0.$BUILD_NUMBER-prod .'   
                }
                 else {
                     sh 'echo Nothing to Build'
@@ -23,10 +23,10 @@ pipeline {
         steps {
             script {
                 if (env.BRANCH_NAME == 'staging') {
-            sh 'docker push hiro99/landing:0.0.$BUILD_NUMBER-stg' 
+            sh 'docker push 637631085186.dkr.ecr.ap-southeast-1.amazonaws.com/landing:0.0.$BUILD_NUMBER-stg' 
                 }
                 else if (env.BRANCH_NAME == 'production') {
-            sh 'docker push hiro99/landing:0.0.$BUILD_NUMBER-prod'
+            sh 'docker push 637631085186.dkr.ecr.ap-southeast-1.amazonaws.com/landing:0.0.$BUILD_NUMBER-prod'
                }
                 else {
                     sh 'echo Nothing to Build'
