@@ -38,13 +38,13 @@ pipeline {
 }
         post {
             success {
-                slackSend channel: '#testbot',
+                slackSend channel: '#jenkins',
                 color: 'good',
                 message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}"
             }    
 
             failure {
-                slackSend channel: '#testbot',
+                slackSend channel: '#jenkins',
                 color: 'danger',
                 message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}"
                 }
